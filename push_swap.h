@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:04:22 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/13 21:04:54 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/15 18:53:16 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 
 int		*ft_parsing(int ac, char **av);
-void	push_median(int **pile1, int **pile2, int mediane);
+void	push_median(int **pile1, int **pile2, int mediane, int quartan);
 void	sa(int *pile);
 void	sb(int *pile);
 void	ss(int *pile1, int *pile2);
@@ -63,5 +63,7 @@ void	set_place(int **tab1, int *place);
 void	ft_disp(int ac, char **av, int **pile1);
 int		get_median(int **pile1);
 int		is_median(int **pile1, int num);
+int		get_quartan(int **pile1);
+int		is_quartan(int **pile1, int num);
 
 #endif

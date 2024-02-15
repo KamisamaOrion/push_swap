@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 05:29:46 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/14 00:53:23 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:29:56 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,16 @@ int	double_rotate(int **pile1, int **pile2, int indice, int place)
 	return (0);
 }
 
-void	push_median(int **pile1, int **pile2, int mediane)
+void	push_median(int **pile1, int **pile2, int mediane, int quartan)
 {
-	if ((*pile2)[0] == 0 || (*pile2)[0] == 1)
-		ft_action(pile1, pile2, "pb");
-	if ((*pile1)[1] <= mediane)
-		ft_action(pile1, pile2, "pb");
-	else
+	if ((*pile1)[1] > mediane)
 	{
 		ft_action(pile1, pile2, "pb");
-		ft_action(pile1, pile2, "rb");
+		if ((*pile1)[1] > quartan)
+			ft_action(pile1, pile2, "rb");
 	}
+	else
+		ft_action(pile1, pile2, "ra");
 }
 
 int	get_median(int **pile1) 
@@ -42,11 +41,27 @@ int	get_median(int **pile1)
 	int	s;
 	int	e;
 
-	s = 0;
+	s = 1;
 	e = (*pile1)[0];
 	while (s <= e)
 	{
 		if (is_median(pile1, (*pile1)[s]))
+			return ((*pile1)[s]);
+		s++;
+	}
+	return (0);
+}
+
+int	get_quartan(int **pile1)
+{
+	int	s;
+	int	e;
+	
+	s = 1;
+	e = (*pile1)[0];
+	while (s <= e)
+	{
+		if (is_quartan(pile1, (*pile1)[s]))
 			return ((*pile1)[s]);
 		s++;
 	}
@@ -59,10 +74,10 @@ int	is_median(int **pile1, int num)
 	int	h;
 	int	l;
 
-	i = 0;
+	i = 1;
 	h = 0;
 	l = 0;
-	while (i < (*pile1)[0])
+	while (i <= (*pile1)[0])
 	{
 		if ((*pile1)[i] > num)
 			h++;
@@ -71,6 +86,28 @@ int	is_median(int **pile1, int num)
 		i++;
 	}
 	if ((h - l) >= -1 && (h - l) <= 1)
+		return (1);
+	return (0);
+}
+
+int	is_quartan(int **pile1, int num)
+{
+	int	i;
+	int	h;
+	int	l;
+
+	i = 1;
+	h = 0;
+	l = 0;
+	while (i <= (*pile1)[0])
+	{
+		if ((*pile1)[i] > num)
+			h++;
+		else if ((*pile1)[i] < num)
+			l++;
+		i++;
+	}
+	if ((h - (l / 3)) >= -1 && (h - (l / 3)) <= 1)
 		return (1);
 	return (0);
 }
