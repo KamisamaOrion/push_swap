@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:23 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/01/21 22:22:17 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:31:36 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ void	ft_disp(int ac, char **av, int **pile1)
 	}
 	else
 		*pile1 = ft_parsing(ac, av);
+	/*if (!check_error(pile1))
+	{
+		//error
+	}*/
 }
 
 int	ft_strstrlen(char **s)

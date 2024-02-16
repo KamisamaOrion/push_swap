@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 02:04:35 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/13 21:46:09 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:12:48 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,14 @@ int	ft_search(int **tab1, int **tab2, int indice, int count)
 	}
 	else
 	{
-		if (indice <= *tab2[0] / 2 + 1)
+		if (indice <= (*tab2)[0] / 2 + 1)
 			count += indice - 1;
 		else
-			count += *tab2[0] - indice + 1;
-		if (place <= *tab1[0] / 2 + 1)
+			count += (*tab2)[0] - indice + 1;
+		if (place <= (*tab1)[0] / 2 + 1)
 			count += place - 1;
 		else
-			count += *tab1[0] - place + 1;
+			count += (*tab1)[0] - place + 1;
 		count++;
 	}
 	return (count);

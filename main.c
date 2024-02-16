@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:17:01 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/15 18:44:47 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:15:11 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ int	*push_swap(int *pile1)
 	int	quartan;
 	
 	pile2 = malloc(sizeof(int) * pile1[0] + 1);
+	if (!pile2)
+	{
+		free(pile2);
+		return (0);
+	}
+	pile2[0] = 0;
 	while (pile1[0] > 3)
 	{
 		mediane = get_median(&pile1);
@@ -66,7 +72,10 @@ int	main(int ac, char **av)
 
 	ft_disp(ac, av, &tab1);
 	if (!tab1)
+	{
+		free(tab1);
 		return (0);
+	}
 	push_swap(tab1);
 	free(tab1);
 }

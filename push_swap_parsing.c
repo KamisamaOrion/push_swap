@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:02:42 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/01/22 16:01:28 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:31:19 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,6 @@ int	*ft_parsing(int ac, char **av)
 	i = 2;
 	while (j < ac)
 	{
-		if (!is_nbr(av[j]))
-		{
-			write(2, "Error\n", 7);
-			return (tab);
-		}
 		tab[0] = ac - 1;
 		tab[i - 1] = ft_atoi(av[j]);
 		i++;
