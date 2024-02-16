@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 05:29:46 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/15 19:29:56 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/16 20:16:36 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	push_median(int **pile1, int **pile2, int mediane, int quartan)
 	if ((*pile1)[1] > mediane)
 	{
 		ft_action(pile1, pile2, "pb");
-		if ((*pile1)[1] > quartan)
+		if ((*pile2)[1] > quartan)
 			ft_action(pile1, pile2, "rb");
 	}
 	else
