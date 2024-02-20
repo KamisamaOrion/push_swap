@@ -6,7 +6,11 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:23 by mhervoch          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2024/02/19 00:26:01 by mhervoch         ###   ########.fr       */
+=======
 /*   Updated: 2024/02/16 18:31:36 by mhervoch         ###   ########.fr       */
+>>>>>>> 1a22be67eea36dae1342795849ecbd69cde495f5
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +30,14 @@ int	*ft_pars_2(char **av)
 
 void	ft_disp(int ac, char **av, int **pile1)
 {
+	if (!check_error(av, ac))
+	{
+		write(2, "Error\n", 7);
+		return ;
+	}
 	if (ac == 2)
 		*pile1 = ft_pars_2(av);
-	if (ac == 1)
+	else if (ac == 1)
 	{
 		write(2, "Error\n", 6);
 		return ;
@@ -65,4 +74,33 @@ void	feed_pile(int **pile, char **tab)
 		i++;
 		j++;
 	}
+}
+
+long int	ft_atol(const char *str)
+{
+	long int	final_result;
+	int			i;
+	int			sign;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	final_result = 0;
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		final_result = final_result * 10 + (str[i] - 48);
+		i++;
+	}
+	if (final_result * sign > 2147483647 || final_result * sign < -2147483648)
+		return (2147483650);
+	return (final_result * sign);
 }

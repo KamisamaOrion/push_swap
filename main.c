@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:17:01 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/16 19:15:11 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:46:04 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	*push_swap(int *pile1)
 	int	mediane;
 	int	goal;
 	int	quartan;
-	
+
 	pile2 = malloc(sizeof(int) * pile1[0] + 1);
 	if (!pile2)
 	{

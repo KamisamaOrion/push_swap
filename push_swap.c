@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 02:04:35 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/16 19:12:48 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:49:44 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,25 @@ int	*ft_share(int *pile, int *tab, int len)
 	return (tab);
 }
 
+int	data_two(int **tab1, int **tab2, int indice, int place)
+{
+	int	count;
+
+	count = 0;
+	while (place != 1 && indice != 1)
+	{
+		count++;
+		set_indice(tab2, &indice);
+		set_place(tab1, &place);
+	}
+	if (place != 1)
+		count += (*tab1)[0] - place + 1;
+	if (indice != 1)
+		count += (*tab2)[0] - indice + 1;
+	count++;
+	return (count);
+}
+
 int	ft_search(int **tab1, int **tab2, int indice, int count)
 {
 	int	data;
@@ -56,35 +75,7 @@ int	ft_search(int **tab1, int **tab2, int indice, int count)
 	if (data == 1)
 		data_one(&place, &indice, &count);
 	else if (data == 2)
-	{
-		while (place != 1 && indice != 1)
-		{
-			count++;
-			set_indice(tab2, &indice);
-			set_place(tab1, &place);
-		}
-		if (place != 1)
-			count += (*tab1)[0] - place + 1;
-		if (indice != 1)
-			count += (*tab2)[0] - indice + 1;
-		count++;
-		/*if (((*tab2)[0] - indice) < ((*tab1)[0] - place))
-		{
-			count += (*tab2)[0] - indice + 1;
-			place -= indice + 1;
-			count += (*tab1)[0] - place + 1;
-			count++;
-		}
-		if (((*tab2)[0] - indice) == ((*tab1)[0] - place))
-			count = (*tab1)[0] - place + 1;
-		if (((*tab2)[0] - indice) > ((*tab1)[0] - place))
-		{
-			count += (*tab1)[0] - place + 1;
-			indice -= place + 1;
-			count += (*tab2)[0] - indice + 1;
-			count++;
-		}*/
-	}
+		count += data_two(tab1, tab2, indice, place);
 	else
 	{
 		if (indice <= (*tab2)[0] / 2 + 1)
@@ -137,8 +128,7 @@ int	*ft_tri(int *pile1, int	*pile2)
 		count = ft_search(&pile1, &pile2, i, 0);
 		min_indice = i;
 		min = count;
-		i++;
-		while (i < pile2[0])
+		while (++i < pile2[0])
 		{
 			count = ft_search(&pile1, &pile2, i, 0);
 			if (count < min)
@@ -146,7 +136,6 @@ int	*ft_tri(int *pile1, int	*pile2)
 				min_indice = i;
 				min = count;
 			}
-			i++;
 		}
 		push_elt(&pile1, &pile2, min_indice);
 	}
