@@ -6,11 +6,8 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:23 by mhervoch          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/02/19 00:26:01 by mhervoch         ###   ########.fr       */
-=======
+/*   Updated: 2024/02/23 17:52:46 by mhervoch         ###   ########.fr       */
 /*   Updated: 2024/02/16 18:31:36 by mhervoch         ###   ########.fr       */
->>>>>>> 1a22be67eea36dae1342795849ecbd69cde495f5
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +25,23 @@ int	*ft_pars_2(char **av)
 	return (pile);
 }
 
-void	ft_disp(int ac, char **av, int **pile1)
+int	ft_disp(int ac, char **av, int **pile1)
 {
 	if (!check_error(av, ac))
 	{
 		write(2, "Error\n", 7);
-		return ;
+		return (2);
 	}
 	if (ac == 2)
 		*pile1 = ft_pars_2(av);
 	else if (ac == 1)
 	{
 		write(2, "Error\n", 6);
-		return ;
+		return (0);
 	}
 	else
 		*pile1 = ft_parsing(ac, av);
-	/*if (!check_error(pile1))
-	{
-		//error
-	}*/
+	return (1);
 }
 
 int	ft_strstrlen(char **s)

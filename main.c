@@ -6,11 +6,25 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:17:01 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/20 20:46:04 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:04:27 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_tri(int *tab1)
+{
+	int	i;
+
+	i = 0;
+	while(tab1[i + 1])
+	{
+		if (tab1[i + i] < tab1[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	last_tri(int **pile1, int **pile2)
 {
@@ -69,9 +83,16 @@ int	*push_swap(int *pile1)
 int	main(int ac, char **av)
 {
 	int	*tab1;
+	int	error;
 
-	ft_disp(ac, av, &tab1);
-	if (!tab1)
+	error = ft_disp(ac, av, &tab1);
+	if (error != 1)
+	{
+		if (!error)
+			free(tab1);
+		return (0);
+	}
+	if (is_tri(tab1))
 	{
 		free(tab1);
 		return (0);

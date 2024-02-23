@@ -6,7 +6,7 @@
 #    By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/05 21:57:44 by mhervoch          #+#    #+#              #
-#    Updated: 2024/01/24 21:35:05 by mhervoch         ###   ########.fr        #
+#    Updated: 2024/02/23 19:21:51 by mhervoch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRCS =  ./main.c \
 		./push_swap_inst_3.c \
 		./push_swap_parsing.c \
 		./push_swap_parsing_2.c \
+		./push_swap_parsing_3.c \
+		./push_swap_parsing_4.c \
 		./opti_push_swap.c \
 		./ft_split.c \
 		./ft_strlcpy.c \
