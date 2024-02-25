@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:23 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/23 17:52:46 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:29:16 by mhervoch         ###   ########.fr       */
 /*   Updated: 2024/02/16 18:31:36 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -27,6 +27,8 @@ int	*ft_pars_2(char **av)
 
 int	ft_disp(int ac, char **av, int **pile1)
 {
+	if (ac == 1)
+		return (2);
 	if (!check_error(av, ac))
 	{
 		write(2, "Error\n", 7);

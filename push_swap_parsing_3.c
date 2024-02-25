@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:03:38 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 20:53:50 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:29:05 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	check_error(char **av, int ac)
 {
 	char	**elt;
 	int		i;
-	
 	if (!double_elt(av, ac))
 		return (0);
 	if (ac > 2)
