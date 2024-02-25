@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:17:51 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/23 19:32:59 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 20:54:03 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	check_double(char **av)
 	int		j;
 
 	i = 0;
-	j = 1;
 	elt = ft_split(av[1], ' ');
 	while (elt[i])
 	{
+		j = i + 1;
 		while (elt[j])
 		{
 			if (ft_atoi(elt[j]) == ft_atoi(elt[i]) && j != i)

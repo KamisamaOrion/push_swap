@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:03:38 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/23 19:31:45 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 20:53:50 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	double_elt(char **av, int ac)
 	int		i;
 
 	i = 1;
-	j = 2;
 	elt = av;
 	if (ac == 2)
 	{
@@ -55,6 +54,7 @@ int	double_elt(char **av, int ac)
 	}
 	while (av[i])
 	{
+		j = i + 1;
 		while (elt[j])
 		{
 			if (ft_atoi(av[i]) == ft_atoi(elt[j]) && j != i)
