@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:17:51 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 20:54:03 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:01:52 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,27 @@ int	check_double(char **av)
 		while (elt[j])
 		{
 			if (ft_atoi(elt[j]) == ft_atoi(elt[i]) && j != i)
+			{
+				all_free(elt);
 				return (0);
+			}
 			j++;
 		}
 		i++;
 	}
+	all_free(elt);
 	return (1);
+}
+
+void	all_free(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

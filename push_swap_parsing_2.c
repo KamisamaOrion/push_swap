@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 22:18:23 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 21:29:16 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:00:39 by mhervoch         ###   ########.fr       */
 /*   Updated: 2024/02/16 18:31:36 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -22,6 +22,7 @@ int	*ft_pars_2(char **av)
 	pile = malloc(1 + (ft_strstrlen(tab)) * sizeof(int));
 	pile[0] = 0;
 	feed_pile(&pile, tab);
+	all_free(tab);
 	return (pile);
 }
 

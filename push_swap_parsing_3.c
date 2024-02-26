@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:03:38 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 21:29:05 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:03:37 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ int	error_synt(char *elt)
 
 int	double_elt(char **av, int ac)
 {
-	char	**elt;
 	int		j;
 	int		i;
 
 	i = 1;
-	elt = av;
 	if (ac == 2)
 	{
 		if (!check_double(av))
@@ -55,9 +53,9 @@ int	double_elt(char **av, int ac)
 	while (av[i])
 	{
 		j = i + 1;
-		while (elt[j])
+		while (av[j])
 		{
-			if (ft_atoi(av[i]) == ft_atoi(elt[j]) && j != i)
+			if (ft_atoi(av[i]) == ft_atoi(av[j]) && j != i)
 				return (0);
 			j++;
 		}
@@ -96,8 +94,12 @@ int	check_error(char **av, int ac)
 	while (elt[i])
 	{
 		if (!is_nbr(elt[i]) || !error_synt(elt[i]))
+		{
+			all_free(elt);
 			return (0);
+		}
 		i++;
 	}
+	all_free(elt);
 	return (1);
 }

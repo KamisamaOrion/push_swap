@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:04:22 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/23 19:21:37 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/25 22:02:34 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int			is_quartan(int **pile1, int num);
 long int	ft_atol(const char *str);
 int			check_error(char **av, int ac);
 int			check_double(char **av);
+void		all_free(char **tab);
 
 #endif
