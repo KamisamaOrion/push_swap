@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:02:42 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/26 19:34:29 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:03:28 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	*ft_parsing(int ac, char **av)
 	int	j;
 	int	*tab;
 
-	tab = malloc(sizeof(int) * ac);
+	tab = malloc(sizeof(int) * (ac + 1));
 	j = 1;
 	i = 2;
 	while (j < ac)
