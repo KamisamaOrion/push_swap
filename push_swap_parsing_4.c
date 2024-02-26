@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:17:51 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 22:01:52 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:40:58 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	check_double(char **av)
 
 	i = 0;
 	elt = ft_split(av[1], ' ');
+	if (!elt)
+		return (0);
 	while (elt[i])
 	{
 		j = i + 1;
@@ -49,4 +51,17 @@ void	all_free(char **tab)
 		i++;
 	}
 	free(tab);
+}
+
+int	check_in(char **elt, int i)
+{
+	while (elt[i])
+	{
+		if (!is_nbr(elt[i]) || !error_synt(elt[i++]))
+		{
+			all_free(elt);
+			return (0);
+		}
+	}
+	return (1);
 }

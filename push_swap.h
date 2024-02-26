@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 22:04:22 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 22:02:34 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:34:47 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 
 int			*ft_parsing(int ac, char **av);
-void		push_median(int **pile1, int **pile2, int mediane, int quartan);
+void		push_median(int **pile1, int **pile2, int mediane);
 void		sa(int *pile);
 void		sb(int *pile);
 void		ss(int *pile1, int *pile2);
@@ -69,5 +69,10 @@ long int	ft_atol(const char *str);
 int			check_error(char **av, int ac);
 int			check_double(char **av);
 void		all_free(char **tab);
+int			check_in(char **elt, int i);
+int			error_synt(char *elt);
+int			data_two(int **tab1, int **tab2, int indice, int place);
+int			is_quartan(int **pile1, int num);
+int			data_three(int indice, int place, int **tab1, int **tab2);
 
 #endif

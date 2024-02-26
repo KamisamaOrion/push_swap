@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 02:04:35 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/20 20:49:44 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 19:57:44 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,6 @@ int	*ft_share(int *pile, int *tab, int len)
 	return (tab);
 }
 
-int	data_two(int **tab1, int **tab2, int indice, int place)
-{
-	int	count;
-
-	count = 0;
-	while (place != 1 && indice != 1)
-	{
-		count++;
-		set_indice(tab2, &indice);
-		set_place(tab1, &place);
-	}
-	if (place != 1)
-		count += (*tab1)[0] - place + 1;
-	if (indice != 1)
-		count += (*tab2)[0] - indice + 1;
-	count++;
-	return (count);
-}
-
 int	ft_search(int **tab1, int **tab2, int indice, int count)
 {
 	int	data;
@@ -77,17 +58,7 @@ int	ft_search(int **tab1, int **tab2, int indice, int count)
 	else if (data == 2)
 		count += data_two(tab1, tab2, indice, place);
 	else
-	{
-		if (indice <= (*tab2)[0] / 2 + 1)
-			count += indice - 1;
-		else
-			count += (*tab2)[0] - indice + 1;
-		if (place <= (*tab1)[0] / 2 + 1)
-			count += place - 1;
-		else
-			count += (*tab1)[0] - place + 1;
-		count++;
-	}
+		count += data_three(indice, place, tab1, tab2);
 	return (count);
 }
 

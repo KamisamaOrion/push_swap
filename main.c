@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 21:17:01 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/23 18:04:27 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:34:36 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	is_tri(int *tab1)
 	int	i;
 
 	i = 0;
-	while(tab1[i + 1])
+	while (tab1[i + 1])
 	{
 		if (tab1[i + i] < tab1[i])
 			return (0);
@@ -57,7 +57,6 @@ int	*push_swap(int *pile1)
 	int	*pile2;
 	int	mediane;
 	int	goal;
-	int	quartan;
 
 	pile2 = malloc(sizeof(int) * pile1[0] + 1);
 	if (!pile2)
@@ -69,10 +68,9 @@ int	*push_swap(int *pile1)
 	while (pile1[0] > 3)
 	{
 		mediane = get_median(&pile1);
-		quartan = get_quartan(&pile1);
 		goal = pile1[0] / 2 + 1;
 		while (pile1[0] > goal)
-			push_median(&pile1, &pile2, mediane, quartan);
+			push_median(&pile1, &pile2, mediane);
 	}
 	ft_tri(pile1, pile2);
 	last_tri(&pile1, &pile2);

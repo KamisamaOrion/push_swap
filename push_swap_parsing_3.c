@@ -1,4 +1,4 @@
-/************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap_parsing_3.c                              :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: mhervoch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:03:38 by mhervoch          #+#    #+#             */
-/*   Updated: 2024/02/25 22:03:37 by mhervoch         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:04:29 by mhervoch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	check_int(char *elt)
 {
+	if (ft_strlen(elt) > 12)
+		return (0);
 	if (ft_atol(elt) > 2147483648 || ft_atol(elt) < -2147483647)
 		return (0);
 	return (1);
@@ -67,7 +69,7 @@ int	double_elt(char **av, int ac)
 int	check_error_2(char **av)
 {
 	int	i;
-	
+
 	i = 1;
 	while (av[i])
 	{
@@ -81,7 +83,7 @@ int	check_error_2(char **av)
 int	check_error(char **av, int ac)
 {
 	char	**elt;
-	int		i;
+
 	if (!double_elt(av, ac))
 		return (0);
 	if (ac > 2)
@@ -89,17 +91,14 @@ int	check_error(char **av, int ac)
 		if (!check_error_2(av))
 			return (0);
 	}
-	elt = ft_split(av[1], ' ');
-	i = 0;
-	while (elt[i])
+	else
 	{
-		if (!is_nbr(elt[i]) || !error_synt(elt[i]))
-		{
-			all_free(elt);
+		elt = ft_split(av[1], ' ');
+		if (!elt)
 			return (0);
-		}
-		i++;
+		if (!check_in(elt, 0))
+			return (0);
+		all_free(elt);
 	}
-	all_free(elt);
 	return (1);
 }
