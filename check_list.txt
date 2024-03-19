@@ -1,3 +1,0 @@
-- leak
-valgrind ./push_swap "                                           9999999"
---> invalid read (!= 0 et " " et "")
